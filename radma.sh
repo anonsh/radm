@@ -21,19 +21,27 @@ echo -e "   \e[1;33m888   T88b \"Y888888  \"Y88888 888  888  888 \"Y888888\e[0m"
 echo -e "   \e[1;33m------------------------\e[0m \e[1;31mReverse Engineered ADM\e[0m \e[1;33m---\e[0m"
 echo ""
 echo ""
-echo -e "   \e[1;34mPress enter to install Radma...\e[0m"
+echo -e "> \e[1;34mPress enter to install Radma...\e[0m"
 read
+echo -e "- \e[1;33mInstalling, please wait...\e[0m"
+echo ""
 
-# Set adm and menu
+# Set adm, menu and restore
 if [ -d /etc/adm-lite ]; then
 rm -rf /etc/adm-lite
 fi
+if [ -d /etc/adm-backup ]; then
+rm -rf /etc/adm-backup
+fi
 mkdir /etc/adm-lite
+mkdir /etc/adm-backup
 cd /etc/adm-lite
 echo "cd /etc/adm-lite && bash ./menu" > /bin/menu
 echo "cd /etc/adm-lite && bash ./menu" > /bin/adm
+echo "cd /etc/adm-backup && bash ./restore" > /bin/restore
 chmod +x /bin/menu
 chmod +x /bin/adm
+chmod +x /bin/restore
 
 # Get source
 cd /etc/adm-lite
@@ -146,6 +154,12 @@ chmod +x /etc/adm-lite/verifica
 wget https://raw.github.com/anonsh/radm/master/adm-lite/versao_script -O /etc/adm-lite/versao_script 1> /dev/null 2> /dev/stdout
 chmod +x /etc/adm-lite/versao_script
 
+wget https://raw.github.com/anonsh/radm/master/adm-lite/restore -O /etc/adm-backup/restore 1> /dev/null 2> /dev/stdout
+chmod +x /etc/adm-backup/restore
+
+# Backup
+cp -rf /etc/adm-lite/* /etc/adm-backup
+
 # Install dependencies
 apt-get install screen -y
 apt-get install python -y
@@ -167,4 +181,5 @@ service apache2 restart
 echo ""
 echo -e "> \e[1;33mRadma installation completed!\e[0m"
 echo -e "- \e[1;34mUse Radma running\e[0m \e[1;36madm\e[0m \e[1;34mand\e[0m \e[1;36mmenu\e[0m \e[1;34mcommands\e[0m"
+echo -e "- \e[1;34mIf these commands stop working, run\e[0m \e[1;36mrestore\e[0m \e[1;34mto fix it\e[0m"
 echo ""
