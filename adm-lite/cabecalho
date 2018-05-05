@@ -271,8 +271,7 @@ cor[6]="\033[1;35m"
 }
 
 vary_rex () {
-# echo -e $(echo "$1"| sed 's/../\\x&/g;s/$/ /') && return 0 || return 1
-radma="ramda"
+echo -e $(echo "$1"| sed 's/../\\x&/g;s/$/ /') && return 0 || return 1
 }
 
 funcao_verificacao () {
